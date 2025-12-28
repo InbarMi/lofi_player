@@ -2,6 +2,8 @@
 
 A lightweight CLI lofi background music player that runs as a detached background process.
 
+This project was built as a learning exercise to better understand background processes, inter-process communication (via shared files), and separation between a CLI and a long-running service.
+
 ## Features
 * Play lofi tracks in a loop
 * Switch songs
