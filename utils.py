@@ -112,6 +112,6 @@ def play_music(song: str) -> bool:
     if not songpath:
         return False
     
-    pygame.mixer.music.load(SONGS[song])
+    pygame.mixer.music.load(songpath)
     pygame.mixer.music.play(loops=-1)
     return True
