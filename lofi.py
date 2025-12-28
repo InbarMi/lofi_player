@@ -32,6 +32,9 @@ def run_lofi_service(init_song: str) -> None:
 
                 if cmd == "play":
                     utils.stop_music()
+                    if not utils.play_music(arg):
+                        print(f"Unknown song chosen: {arg}")
+                        print(HELP_MESSAGE)
                 elif cmd == "stop":
                     break
 
