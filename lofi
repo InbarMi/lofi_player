@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# to play a song: lofi play 'song name'
+# to see list of songs: lofi play
+# to stop playing: lofi stop
+
+py "$(dirname "$0")/lofi.py" "$@"

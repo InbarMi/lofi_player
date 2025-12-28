@@ -1,0 +1,11 @@
+# audio files
+songs/*.mp3
+songs/*.wav
+
+# runtime files
+lofi.pid
+lofi.cmd
+
+# Python
+__pycache__/
+*.pyc
