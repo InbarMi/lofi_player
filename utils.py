@@ -47,10 +47,13 @@ def read_pid() -> int | None:
         return None
 
 def write_pid(pid: int) -> None:
+    '''Write PID to PID file'''
+
     with open(PID_FILE, "w", encoding="utf-8") as f:
         f.write(str(pid))
 
 def clear_ipc_files() -> None:
+    '''Remove existing IPC files'''
     for path in (PID_FILE, CMD_FILE):
         if os.path.exists(path):
             try:
@@ -101,6 +104,7 @@ os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "1"
 import pygame
 
 def stop_music():
+    '''Stop played music'''
     try:
         pygame.mixer.music.stop()
         pygame.mixer.music.unload()
@@ -108,10 +112,29 @@ def stop_music():
         pass
 
 def play_music(song: str) -> bool:
+    '''Play one song in a loop'''
     songpath = get_song_path(song)
     if not songpath:
         return False
     
     pygame.mixer.music.load(songpath)
     pygame.mixer.music.play(loops=-1)
+    return True
+
+song_index = 0
+def play_next_song() -> bool:
+    '''Play the next song in the song list'''
+    global song_index
+    songnames = list(SONGS.keys())
+    if not songnames:
+        return False
+    
+    songname = songnames[song_index]
+    songpath = get_song_path(songname)
+    if not songpath:
+        return False
+    
+    pygame.mixer.music.load(songpath)
+    pygame.mixer.music.play()
+    song_index = (song_index + 1) % len(songnames)
     return True

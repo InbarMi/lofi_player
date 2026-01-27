@@ -20,14 +20,21 @@ SONGS = {
 }
 
 HELP_MESSAGE = '''
-===============================================================
-|    Tracklist:                                               |
-===============================================================
-|   inuyasha: Affections Touching Across Time                 |
-|   kiki: Kiki's Delivery Service: A Town with an Ocean View  |
-|   tarzan: You'll Be in My Heart                             |
-|   "mary poppins": Chim Chim Cheree                          |
-|   "kate bush": Running Up That Hill                         |
-|   "still with you"                                          |
-===============================================================
+=========================================================================
+| Lofi CLI                                                              |
+=========================================================================
+| Usage:                                                                |
+|    lofi play           Start playlist mode (loops through all songs)  |
+|    lofi play [song]    Play one song on repeat                        |
+|    lofi stop           Stop the lofi service                          |
+=========================================================================
+|    Tracklist:                                                         |
+=========================================================================
+|   inuyasha: Affections Touching Across Time                           |
+|   kiki: Kiki's Delivery Service: A Town with an Ocean View            |
+|   tarzan: You'll Be in My Heart                                       |
+|   mary poppins: Chim Chim Cheree                                      |
+|   kate bush: Running Up That Hill                                     |
+|   still with you: Still With You                                      |
+=========================================================================
 '''
