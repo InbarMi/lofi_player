@@ -6,7 +6,7 @@ This project was built as a learning exercise to better understand background pr
 
 ## Features
 * Play a single song on repeat
-* Play all songs in a lcontinous playlist
+* Play all songs in a continous playlist
 * Switch between single and playlist modes at runtime
 * Stop the background service
 * Detached Background process (not tied to terminal lifetime)
