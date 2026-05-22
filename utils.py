@@ -160,7 +160,13 @@ def decrease_volume():
 
 def set_volume(vol):
     '''Set volume of current music using percentage (0-100)'''
+    try:
+        vol = float(vol)
+    except ValueError:
+        return
+
     if vol < 0: vol = 0
     elif vol > 100: vol = 100
 
-    pygame.mixer.music.set_volume(vol / 100)
+    new_volume = vol / 100
+    pygame.mixer.music.set_volume(new_volume)
