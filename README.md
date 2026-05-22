@@ -6,16 +6,17 @@ This project was built as a learning exercise to better understand background pr
 
 ## Features
 * Play a single song on repeat
-* Play all songs in a continous playlist
-* Switch between single and playlist modes at runtime
+* Play all songs in a continuous playlist
+* Switch between single-song and playlist modes at runtime
 * Stop the background service
-* Detached Background process (not tied to terminal lifetime)
-* Simple, minimal CLI
+* Volume control (increase, decrease, or set 0-100%)
+* Detached background process (independent of terminal session)
+* Minimal CLI
 
 ## Architecture
-* CLI process communicates with a long-running background service via shared command and PID files
-* Background service manages audio playback independently of the terminal
-* Commands can be sent to an existing service instance without restarting it
+* A CLI process sends commands to a long-running background service via shared command and PID files
+* The service manages audio playback independently of the terminal
+* Commands can be sent without restarting the service
 
 ## Setup
 1. Clone the repo
@@ -29,9 +30,12 @@ This project was built as a learning exercise to better understand background pr
 Once installed, the following commands can be used:
 
 ```bash
-lofi play           Start playlist mode (loops through all songs)
-lofi play [song]    Play one song on repeat
-lofi stop           Stop the lofi service
+lofi play           # Start playlist mode (loops through all songs)
+lofi play [song]    # Play one song on repeat
+lofi stop           # Stop the lofi service
+lofi vol up         # Increase volume
+lofi vol down       # Decrease volume
+lofi vol [0-100]    # Set volume percentage
 ```
 
 ## Additional Notes
