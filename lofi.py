@@ -73,6 +73,13 @@ def run_lofi_service(start_mode: str, init_song: str | None) -> None:
                     start_playlist()
                 elif cmd == "stop":
                     break
+                elif cmd == "vol":
+                    if arg == "up":
+                        utils.increase_volume()
+                    elif arg == "down":
+                        utils.decrease_volume()
+                    elif arg:
+                        utils.set_volume(arg)
                 else:
                     print(f"Invalid command: {line}")
                     print(HELP_MESSAGE)
@@ -170,6 +177,21 @@ def run_cli(args: list[str]) -> int:
             return 0
         
         utils.write_cmd("stop")
+        return 0
+    
+    if cmd == "vol":
+        pid = utils.read_pid()
+
+        if pid is None or not utils.is_process_running(pid):
+            print("Lofi service is not running.")
+            utils.clear_ipc_files()
+            return 0
+
+        if len(args) < 2:
+            print("Usage: lofi vol up | down | [0-100]")
+            return 0
+
+        utils.write_cmd("vol", args[1])
         return 0
 
     if cmd == "help":
