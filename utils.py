@@ -138,3 +138,29 @@ def play_next_song() -> bool:
     pygame.mixer.music.play()
     song_index = (song_index + 1) % len(songnames)
     return True
+
+# Volume control functions
+MUTED = 0.0
+MAX_VOLUME = 1.0
+VOL_STEP = 0.1
+
+def increase_volume():
+    '''Increment volume of current music'''
+    current_volume = pygame.mixer.music.get_volume()
+    new_volume = min(MAX_VOLUME, current_volume + VOL_STEP)
+    
+    pygame.mixer.music.set_volume(new_volume)
+
+def decrease_volume():
+    '''Decrement volume of current music'''
+    current_volume = pygame.mixer.music.get_volume()
+    new_volume = max(MUTED, current_volume - VOL_STEP)
+    
+    pygame.mixer.music.set_volume(new_volume)
+
+def set_volume(vol):
+    '''Set volume of current music using percentage (0-100)'''
+    if vol < 0: vol = 0
+    elif vol > 100: vol = 100
+
+    pygame.mixer.music.set_volume(vol / 100)
